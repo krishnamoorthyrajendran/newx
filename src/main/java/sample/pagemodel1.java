@@ -28,5 +28,13 @@ public class pagemodel1 {
 		return des;
 	}
 	
+	public String screenshotpathdf(String testcasename,WebDriver driver ) throws IOException
+	{
+		TakesScreenshot tk=(TakesScreenshot)driver;
+		File src=tk.getScreenshotAs(OutputType.FILE);
+		String des=System.getProperty("user.dir")+"\\reports\\"+testcasename+".png";
+		FileUtils.copyFile(src, new File(des));
+		return des;
+	}
 	
 }
